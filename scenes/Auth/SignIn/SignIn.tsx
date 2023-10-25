@@ -1,6 +1,6 @@
 "use client";
 
-import { Icons } from "@/components/icons";
+import { Icons } from "@/components/social-icons";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -23,6 +23,9 @@ export default function SignIn() {
   const [error, setError] = useState<string | null>(null);
   const router = useRouter();
   const supabase = createClientComponentClient();
+
+  //if you would like to have Oauth sign in, you can read up on it here:
+  //https://supabase.com/docs/guides/auth/social-login
 
   const handleSignIn = async () => {
     const { error } = await supabase.auth.signInWithPassword({
