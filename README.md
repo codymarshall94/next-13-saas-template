@@ -13,33 +13,36 @@ A starter template for kickstarting your SaaS (Software as a Service) project us
 
 ## Getting Started
 
-Follow these steps to get started with your SaaS project:
+**Step 1: Clone the Repository**
 
-1. **Clone the Repository**:
+Clone this repository to your local machine:
 
-   ```bash
-   git clone https://github.com/codymarshall94/next-13-saas-template.git
-   cd your-saas-project
-Install Dependencies:
+```bash
+git clone https://github.com/codymarshall94/next-13-saas-template.git
+cd your-saas-project
+
+Step 2: Install Dependencies
+
+Install project dependencies using either npm or yarn:
 
 bash
 Copy code
 npm install
 # or
 yarn install
-Configure Supabase:
+Step 3: Configure Supabase
 
 Create a Supabase project and database.
 Update the Supabase configuration in your project to use your Supabase credentials.
-Start Development Server:
+Step 4: Start Development Server
+
+Start the development server using either npm or yarn:
 
 bash
 Copy code
 npm run dev
 # or
 yarn dev
-
-
 Begin Building: Start customizing the pre-built components and adding your own functionality to create your SaaS project.
 
 Project Structure
