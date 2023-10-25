@@ -20,32 +20,39 @@ Follow these steps to get started with your SaaS project:
    ```bash
    git clone https://github.com/codymarshall94/next-13-saas-template.git
    cd your-saas-project
-Install Dependencies:
 
-bash
-Copy code
-npm install
-# or
-yarn install
-Configure Supabase:
+
+2. **Install Dependencies**:
+
+   ```bash
+   npm install
+    or
+   yarn install
+
+3. **Configure Supabase**:
 
 Create a Supabase project and database.
 Update the Supabase configuration in your project to use your Supabase credentials.
-Start Development Server:
 
-bash
-Copy code
-npm run dev
-# or
-yarn dev
+3. **Start Development Server**:
+
+
+   ```bash
+   npm dev
+    or
+   yarn dev
+
+
 Begin Building: Start customizing the pre-built components and adding your own functionality to create your SaaS project.
 
-Project Structure
-components/: Reusable UI components.
-scenes/: Next.js pages and routes.
-utils/: Utility functions and helpers.
-(auth)/: Group route with Authentication-related logic and components.
-config/supabase: Supabase configuration and API integration.
+## Project Structure
+**components/**: Reusable UI components.
+**scenes/**: Next.js pages and routes.
+**utils/**: Utility functions and helpers.
+**(auth)/**: Group route with Authentication-related logic and components.
+**config/supabase:** Supabase configuration and API integration.
+
+
 Contributing
 Contributions are welcome! If you'd like to improve this starter template, feel free to open an issue or submit a pull request.
 
