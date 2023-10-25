@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Next.js Supabase SaaS Starter Template
+
+A starter template for kickstarting your SaaS (Software as a Service) project using Next.js, Supabase, Tailwind CSS, and TypeScript. This template provides the essential tools and features to get your project up and running quickly.
+
+## Features
+
+- **Authentication**: User registration and login using Supabase for secure and scalable authentication.
+- **Pre-built Components**: A collection of reusable UI components from Shadcn to jumpstart your project's development.
+- **Next.js**: A popular React framework for building fast and scalable web applications.
+- **Supabase**: An open-source alternative to Firebase, providing a powerful backend-as-a-service platform.
+- **Tailwind CSS**: A utility-first CSS framework for designing modern and responsive web applications.
+- **TypeScript**: A statically-typed superset of JavaScript for improved code quality and developer productivity.
 
 ## Getting Started
 
-First, run the development server:
+Follow these steps to get started with your SaaS project:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1. **Clone the Repository**:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+   ```bash
+   git clone https://github.com/codymarshall94/next-13-saas-template.git
+   cd your-saas-project
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+2. **Install Dependencies**:
 
-## Learn More
+   ```bash
+   npm install
+    or
+   yarn install
 
-To learn more about Next.js, take a look at the following resources:
+3. **Configure Supabase**:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Create a Supabase project and database.
+Update the Supabase configuration in your project to use your Supabase credentials.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+3. **Start Development Server**:
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   ```bash
+   npm dev
+    or
+   yarn dev
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+Begin Building: Start customizing the pre-built components and adding your own functionality to create your SaaS project.
+
+## Project Structure
+**components/**: Reusable UI components.
+
+**scenes/**: Next.js pages, ready to import into the app router pages.
+
+**utils/**: Utility functions and helpers.
+
+**(auth)/**: Group route with Authentication-related logic and components.
+
+**config/supabase:** Supabase configuration and API integration.
+
+
+Contributing
+Contributions are welcome! If you'd like to improve this starter template, feel free to open an issue or submit a pull request.
+
+Acknowledgments
+Thanks to the creators of Next.js, Supabase, Tailwind CSS, and TypeScript for their fantastic tools.
+
+Happy coding and building your SaaS project! 🚀
