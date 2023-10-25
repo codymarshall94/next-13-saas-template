@@ -47,9 +47,13 @@ Begin Building: Start customizing the pre-built components and adding your own f
 
 ## Project Structure
 **components/**: Reusable UI components.
+
 **scenes/**: Next.js pages and routes.
+
 **utils/**: Utility functions and helpers.
+
 **(auth)/**: Group route with Authentication-related logic and components.
+
 **config/supabase:** Supabase configuration and API integration.
 
 
