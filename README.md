@@ -48,7 +48,7 @@ Begin Building: Start customizing the pre-built components and adding your own f
 ## Project Structure
 **components/**: Reusable UI components.
 
-**scenes/**: Next.js pages and routes.
+**scenes/**: Next.js pages, ready to import into the app router pages.
 
 **utils/**: Utility functions and helpers.
 
