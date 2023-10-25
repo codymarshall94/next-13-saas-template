@@ -1,28 +1,13 @@
-export type NavItem = {
+export type MainNavItem = {
   title: string;
-  href: string;
-  disabled?: boolean;
+  href?: string;
 };
-
-export type NavLink = NavItem;
-
-export type MainNavItem = NavItem;
 
 export type SidebarNavItem = {
   title: string;
-  disabled?: boolean;
-  external?: boolean;
+  href?: string;
   icon: string;
-} & (
-  | {
-      href: string;
-      items?: never;
-    }
-  | {
-      href?: string;
-      items: NavLink[];
-    }
-);
+};
 
 export type DashboardConfig = {
   mainNav: MainNavItem[];

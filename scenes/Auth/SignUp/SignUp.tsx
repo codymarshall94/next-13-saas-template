@@ -31,7 +31,7 @@ export default function SignUp() {
   const handleSignUp = async (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
 
-    let { error } = await supabase.auth.signUp({
+    const { error } = await supabase.auth.signUp({
       email,
       password,
       options: {

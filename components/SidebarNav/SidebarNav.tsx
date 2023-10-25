@@ -3,19 +3,18 @@
 import { MoreVertical, ChevronRight, ChevronLeft } from 'lucide-react';
 import { useState } from 'react';
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
-import { dashboardConfig } from '@/config/dashboard';
 import { Icons } from '@/components/icons';
-import exp from 'constants';
+import { Separator } from '@/components/ui/separator';
+import { SidebarNavItem } from '@/types';
 
-export default function SidebarNav() {
+export default function SidebarNav({ items }: { items: SidebarNavItem[] }) {
   const [expanded, setExpanded] = useState(true);
-  const items = dashboardConfig.sidebarNav;
-
   return (
     <aside className='h-screen'>
       <nav className='flex h-full flex-col border-r bg-white shadow-sm'>
         <div className='flex items-center justify-between p-4 pb-2'>
           {expanded && <span className='text-xl font-semibold'>Logo</span>}
+
           <button
             onClick={() => setExpanded((curr) => !curr)}
             className='rounded-lg bg-gray-50 p-1.5 hover:bg-gray-100'
@@ -23,18 +22,18 @@ export default function SidebarNav() {
             {expanded ? <ChevronLeft /> : <ChevronRight />}
           </button>
         </div>
-
+        <Separator />
         <ul className='flex-1 px-3'>
           {items.map((item) => (
             <SidebarItem
               key={item.title}
               icon={item.icon}
-              text={item.title}
+              title={item.title}
               expanded={expanded}
             />
           ))}
         </ul>
-
+        <Separator />
         <div className='flex p-3'>
           <Avatar className='h-10 w-10'>
             <AvatarImage src='https://github.com/shadcn.png' />
@@ -59,21 +58,17 @@ export default function SidebarNav() {
   );
 }
 
-interface SidebarItemProps {
-  icon: string;
-  text: string;
-  expanded: boolean;
-  active?: boolean;
-  alert?: boolean;
-}
-
 export function SidebarItem({
   icon,
-  text,
+  title,
   expanded,
   active,
-  alert,
-}: SidebarItemProps) {
+}: {
+  icon: string;
+  title: string;
+  expanded: boolean;
+  active?: boolean;
+}) {
   return (
     <li
       className={`
@@ -93,15 +88,8 @@ export function SidebarItem({
           expanded ? 'ml-3 w-52' : 'w-0'
         }`}
       >
-        {text}
+        {title}
       </span>
-      {alert && (
-        <div
-          className={`absolute right-2 h-2 w-2 rounded bg-indigo-400 ${
-            expanded ? '' : 'top-2'
-          }`}
-        />
-      )}
       {!expanded && (
         <div
           className={`
@@ -111,7 +99,7 @@ export function SidebarItem({
           group-hover:visible group-hover:translate-x-0 group-hover:opacity-100
       `}
         >
-          {text}
+          {title}
         </div>
       )}
     </li>
