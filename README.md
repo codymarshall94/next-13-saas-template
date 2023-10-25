@@ -23,10 +23,10 @@ Follow these steps to get started with your SaaS project:
 
 2. **Install Dependencies**:
 
-```bash
-npm install
-# or
-yarn install
+   ```bash
+   npm install
+   # or
+   yarn install
 
 3. **Configure Superbase**:
 
