@@ -19,14 +19,14 @@ Follow these steps to get started with your SaaS project:
 
    ```bash
    git clone https://github.com/codymarshall94/next-13-saas-template.git
-   cd your-saas-project ```
+   cd your-saas-project
 
 2. **Install Dependencies**:
 
 ```bash
 npm install
 # or
-yarn install```
+yarn install
 
 3. **Configure Superbase**:
 
@@ -38,7 +38,7 @@ Update the Supabase configuration in your project to use your Supabase credentia
 
 ```npm run dev
 # or
-yarn dev```
+yarn dev
 
 Begin Building: Start customizing the pre-built components and adding your own functionality to create your SaaS project.
 
