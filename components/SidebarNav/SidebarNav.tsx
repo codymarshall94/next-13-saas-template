@@ -1,26 +1,48 @@
 'use client';
 
-import { MoreVertical, ChevronRight, ChevronLeft } from 'lucide-react';
 import { useState } from 'react';
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
 import { Icons } from '@/components/icons';
 import { Separator } from '@/components/ui/separator';
 import { SidebarNavItem } from '@/types';
+import { Button } from '@/components/ui/button';
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from '@/components/ui/popover';
+import { MoreVertical } from 'lucide-react';
+import { useRouter } from 'next/navigation';
+import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 
 export default function SidebarNav({ items }: { items: SidebarNavItem[] }) {
-  const [expanded, setExpanded] = useState(true);
+  const [expanded, setExpanded] = useState<boolean>(true);
+  const router = useRouter();
+  const supabase = createClientComponentClient();
+
+  const handleSignOut = async () => {
+    const { error } = await supabase.auth.signOut();
+    if (error) console.log('Error signing out:', error.message);
+    router.refresh();
+  };
+
   return (
     <aside className='h-screen'>
       <nav className='flex h-full flex-col border-r bg-white shadow-sm'>
         <div className='flex items-center justify-between p-4 pb-2'>
           {expanded && <span className='text-xl font-semibold'>Logo</span>}
 
-          <button
+          <Button
+            variant='ghost'
             onClick={() => setExpanded((curr) => !curr)}
-            className='rounded-lg bg-gray-50 p-1.5 hover:bg-gray-100'
+            className='rounded-lg p-2 hover:bg-gray-100'
           >
-            {expanded ? <ChevronLeft /> : <ChevronRight />}
-          </button>
+            {!expanded ? (
+              <Icons icon='chevron-right' />
+            ) : (
+              <Icons icon='chevron-left' />
+            )}
+          </Button>
         </div>
         <Separator />
         <ul className='flex-1 px-3'>
@@ -50,7 +72,30 @@ export default function SidebarNav({ items }: { items: SidebarNavItem[] }) {
               <h4 className='font-semibold'>John Doe</h4>
               <span className='text-xs text-gray-600'>johndoe@gmail.com</span>
             </div>
-            <MoreVertical size={20} />
+            <Popover>
+              <PopoverTrigger asChild>
+                <Button
+                  variant='ghost'
+                  className='rounded-lg p-2 hover:bg-gray-100'
+                >
+                  <MoreVertical />
+                </Button>
+              </PopoverTrigger>
+              <PopoverContent
+                className='rounded-md bg-white p-2 shadow-md'
+                align='end'
+              >
+                <Button
+                  variant='ghost'
+                  className='flex w-full items-center justify-between'
+                  onClick={handleSignOut}
+                >
+                  {' '}
+                  <span className='text-sm'>Logout</span>
+                  <Icons icon='log-out' />
+                </Button>
+              </PopoverContent>
+            </Popover>
           </div>
         </div>
       </nav>
