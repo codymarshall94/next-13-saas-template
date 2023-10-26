@@ -23,6 +23,7 @@ import {
   Trash,
   User,
   X,
+  LogOut,
 } from 'lucide-react';
 
 export const Icons = ({ icon }: { icon: string }): JSX.Element => {
@@ -37,6 +38,8 @@ export const Icons = ({ icon }: { icon: string }): JSX.Element => {
       return <ChevronLeft />;
     case 'chevron-right':
       return <ChevronRight />;
+    case 'log-out':
+      return <LogOut />;
     case 'command':
       return <Command />;
     case 'credit-card':
