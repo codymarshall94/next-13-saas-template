@@ -10,7 +10,7 @@ export default async function SignInPage() {
   } = await supabase.auth.getSession();
 
   if (session) {
-    redirect("/");
+    redirect("/dashboard");
   }
   return <SignIn />;
 }

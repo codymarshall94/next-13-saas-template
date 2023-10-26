@@ -1,17 +1,5 @@
-import Home from "@/scenes/Home";
-import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
-import { cookies } from "next/headers";
-import { redirect } from "next/navigation";
+import Home from '@/scenes/Home';
 
 export default async function HomePage() {
-  const supabase = createServerComponentClient({ cookies });
-  const {
-    data: { session },
-  } = await supabase.auth.getSession();
-
-  if (!session) {
-    redirect("/sign-in");
-  }
-
   return <Home />;
 }

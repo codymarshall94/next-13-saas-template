@@ -1,7 +1,7 @@
-import SignUp from "@/scenes/Auth/SignUp";
-import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
-import { cookies } from "next/headers";
-import { redirect } from "next/navigation";
+import SignUp from '@/scenes/Auth/SignUp';
+import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
+import { cookies } from 'next/headers';
+import { redirect } from 'next/navigation';
 
 export default async function SignUpPage() {
   const supabase = createServerComponentClient({ cookies });
@@ -10,7 +10,7 @@ export default async function SignUpPage() {
   } = await supabase.auth.getSession();
 
   if (session) {
-    redirect("/");
+    redirect('/dashboard');
   }
 
   return <SignUp />;
