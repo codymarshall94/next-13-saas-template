@@ -9,7 +9,6 @@ export const dashboardConfig: DashboardConfig = {
     {
       title: 'Support',
       href: '/support',
-      disabled: true,
     },
   ],
   sidebarNav: [
