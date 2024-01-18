@@ -13,19 +13,36 @@ export const dashboardConfig: DashboardConfig = {
   ],
   sidebarNav: [
     {
-      title: 'Dashboard',
+      title: 'Home',
       href: '/dashboard',
-      icon: 'laptop',
+      icon: 'home',
     },
     {
-      title: 'Billing',
-      href: '/dashboard/billing',
-      icon: 'credit-card',
+      title: 'Calendar',
+      href: '/dashboard/calendar',
+      icon: 'calendar',
     },
+    {
+      title: 'Class Builder',
+      href: '/dashboard/create-class',
+      icon: 'blocks',
+    },
+    {
+      title: 'My Classes',
+      href: 'dashboard/my-classes',
+      icon: 'folder',
+    },
+  ],
+  sidebarNavExtras: [
     {
       title: 'Settings',
       href: '/dashboard/settings',
       icon: 'settings',
+    },
+    {
+      title: 'Support',
+      href: '/dashboard/support',
+      icon: 'help-circle',
     },
   ],
 };

@@ -24,6 +24,10 @@ import {
   User,
   X,
   LogOut,
+  Home,
+  Calendar,
+  Blocks,
+  Folder,
 } from 'lucide-react';
 
 export const Icons = ({ icon }: { icon: string }): JSX.Element => {
@@ -32,6 +36,10 @@ export const Icons = ({ icon }: { icon: string }): JSX.Element => {
       return <AlertTriangle />;
     case 'arrow-right':
       return <ArrowRight />;
+    case 'blocks':
+      return <Blocks />;
+    case 'calendar':
+      return <Calendar />;
     case 'check':
       return <Check />;
     case 'chevron-left':
@@ -48,8 +56,12 @@ export const Icons = ({ icon }: { icon: string }): JSX.Element => {
       return <File />;
     case 'file-text':
       return <FileText />;
+    case 'folder':
+      return <Folder />;
     case 'help-circle':
       return <HelpCircle />;
+    case 'home':
+      return <Home />;
     case 'image':
       return <Image />;
     case 'laptop':

@@ -14,10 +14,19 @@ import {
 import { MoreVertical } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
+import ThemeToggle from '../ThemeToggle';
+import { usePathname } from 'next/navigation';
 
-export default function SidebarNav({ items }: { items: SidebarNavItem[] }) {
+export default function SidebarNav({
+  items,
+  itemsExtra,
+}: {
+  items: SidebarNavItem[];
+  itemsExtra: SidebarNavItem[];
+}) {
   const [expanded, setExpanded] = useState<boolean>(true);
   const router = useRouter();
+  const pathname = usePathname();
   const supabase = createClientComponentClient();
 
   const handleSignOut = async () => {
@@ -28,14 +37,15 @@ export default function SidebarNav({ items }: { items: SidebarNavItem[] }) {
 
   return (
     <aside className='h-screen'>
-      <nav className='flex h-full flex-col border-r bg-white shadow-sm'>
+      <nav className='flex h-full flex-col border-r shadow-sm'>
         <div className='flex items-center justify-between p-4 pb-2'>
-          {expanded && <span className='text-xl font-semibold'>Logo</span>}
-
+          {expanded && (
+            <span className='text-xl font-semibold text-primary'>PK Plan</span>
+          )}
           <Button
             variant='ghost'
             onClick={() => setExpanded((curr) => !curr)}
-            className='rounded-lg p-2 hover:bg-gray-100'
+            className='rounded-lg p-2 hover:bg-popover'
           >
             {!expanded ? (
               <Icons icon='chevron-right' />
@@ -52,9 +62,33 @@ export default function SidebarNav({ items }: { items: SidebarNavItem[] }) {
               icon={item.icon}
               title={item.title}
               expanded={expanded}
+              active={pathname === item.href}
             />
           ))}
         </ul>
+
+        <Separator />
+        <ul className='flex-1 px-3'>
+          {itemsExtra.map((item) => (
+            <SidebarItem
+              key={item.title}
+              icon={item.icon}
+              title={item.title}
+              expanded={expanded}
+            />
+          ))}
+          <div>
+            <ThemeToggle />
+            {expanded && (
+              <span
+                className={`overflow-hidden font-bold text-muted-foreground transition-all `}
+              >
+                Toggle Theme
+              </span>
+            )}
+          </div>
+        </ul>
+
         <Separator />
         <div className='flex p-3'>
           <Avatar className='h-10 w-10'>
@@ -123,7 +157,7 @@ export function SidebarItem({
         ${
           active
             ? 'bg-gradient-to-tr from-indigo-200 to-indigo-100 text-indigo-800'
-            : 'text-gray-600 hover:bg-indigo-50'
+            : 'text-muted-foreground hover:bg-muted hover:text-primary'
         }
     `}
     >
@@ -136,7 +170,7 @@ export function SidebarItem({
         {title}
       </span>
       {!expanded && (
-        <div
+        <span
           className={`
           invisible absolute left-full ml-6 -translate-x-3 rounded-md
           bg-indigo-100 px-2 py-1
@@ -145,7 +179,7 @@ export function SidebarItem({
       `}
         >
           {title}
-        </div>
+        </span>
       )}
     </li>
   );

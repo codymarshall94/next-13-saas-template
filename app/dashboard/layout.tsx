@@ -7,9 +7,10 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }) {
   const sidebar = dashboardConfig.sidebarNav;
+  const sideBarExtras = dashboardConfig.sidebarNavExtras;
   return (
-    <div className="flex">
-      <SidebarNav items={sidebar} />
+    <div className='flex'>
+      <SidebarNav items={sidebar} itemsExtra={sideBarExtras} />
       {children}
     </div>
   );
